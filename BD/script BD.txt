@@ -1,0 +1,31 @@
+CREATE DATABASE ESTACIONAMENTO;
+USE ESTACIONAMENTO;
+
+CREATE TABLE VEICULO(
+    veic_placa VARCHAR(10) NOT NULL,
+    veic_marca VARCHAR(30) NOT NULL,
+    veic_modelo VARCHAR(30) NOT NULL,
+    veic_he DATETIME NOT NULL,
+    veic_hs DATETIME,
+    veic_total DECIMAL(8,2),
+    veic_status VARCHAR(10) NOT NULL DEFAULT 'ATIVO',
+    PRIMARY KEY(veic_placa)
+);
+
+CREATE TABLE CAR(
+    car_cod INTEGER AUTO_INCREMENT NOT NULL,
+    veic_placa VARCHAR(10) NOT NULL,
+    car_tipo VARCHAR(30) NOT NULL,
+    car_valor DECIMAL(8,2) NOT NULL,
+    car_data DATE NOT NULL,
+    PRIMARY KEY(car_cod),
+    FOREIGN KEY(veic_placa) REFERENCES VEICULO(veic_placa)
+);
+
+CREATE TABLE CAP(
+    cap_cod INTEGER AUTO_INCREMENT NOT NULL,
+    cap_tipo VARCHAR(30) NOT NULL,
+    cap_valor DECIMAL(8,2) NOT NULL,
+    cap_data DATE NOT NULL,
+    PRIMARY KEY(cap_cod)
+);
