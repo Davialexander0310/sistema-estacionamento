@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS ESTACIONAMENTO;
+USE ESTACIONAMENTO;
+
+CREATE TABLE VEICULO (
+    veic_cod INT AUTO_INCREMENT PRIMARY KEY,
+    veic_placa VARCHAR(10) NOT NULL,
+    veic_marca VARCHAR(50),
+    veic_modelo VARCHAR(50),
+    veic_he DATETIME NOT NULL,
+    veic_hs DATETIME,
+    veic_total DECIMAL(10,2),
+    veic_status VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE CAR (
+    car_cod INT AUTO_INCREMENT PRIMARY KEY,
+    veic_placa VARCHAR(10) NOT NULL,
+    car_tipo VARCHAR(50) NOT NULL,
+    car_valor DECIMAL(10,2) NOT NULL,
+    car_data DATETIME NOT NULL
+);
+
+CREATE TABLE CAP (
+    cap_cod INT AUTO_INCREMENT PRIMARY KEY,
+    cap_tipo VARCHAR(100) NOT NULL,
+    cap_valor DECIMAL(10,2) NOT NULL,
+    cap_data DATETIME NOT NULL
+);
